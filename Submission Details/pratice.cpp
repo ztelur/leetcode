@@ -21,15 +21,13 @@ public:
     int evalRPN(vector<string> &tokens) {
         stack<int> stk;
         int result;
-        stringstream ss;
-        string a;
         for(int i=0;i<tokens.size();i++) {
         	if (checkOperation(tokens[i])) {
         		int n=stk.top();
+        		stk.pop();
         		int m=stk.top();
         		stk.pop();
-        		stk.pop();
-        		stk.push(figure(tokens[i],n,m));
+        		stk.push(figure(tokens[i],m,n)); //注意这里的栈是后进先出的啊，所以两个位置的要调换一下位置
         	} else {
         		stk.push(atoi(tokens[i].c_str()));
         	}
