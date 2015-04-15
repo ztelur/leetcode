@@ -3,34 +3,23 @@ using namespace std;
 class Solution {
 public:
     void rotate(int nums[], int n, int k) {
-  	k=k%n;
-  	if(n<=0||k==0) {
-  		return ;
-  	}
-  	int i=0;  // loop num
-  	int location=0; //cur loop location
-  	int pre=nums[location];
-  	while(i<n) {
-  		int temp;
-  		if (location<=n-k-1) {   // 
- 			temp=nums[location+k];
- 			nums[location+k]=pre;
- 			/*location=location+k;
- 			nums[location+k]=pre;  errorrrrr!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- 			*/
- 			location+=k;
- 			pre=temp;
-  		} else {
-  			temp=nums[location-(n-k)];
-  			nums[location-(n-k)]=pre;
-  			location=location-(n-k);
-  			pre=temp;
-  		}
-  		i++;
-  	}      
-  	for(int i=0;i<n;i++) {
-  		printf("%d\n", nums[i]);
-  	}
+    	k=k%n;
+    	if (n<=0||k==0) {
+    		return ;
+    	}
+    	int start=k-1;
+    	reverse(nums,0,n-1);
+    	reverse(nums,0,start);
+    	reverse(nums,start+1,n-1);
+    }
+    void reverse(int nums[],int start,int end) {
+    	while(start<end) {
+    		int temp=nums[start];
+    		nums[start]=nums[end];
+    		nums[end]=temp;
+    		start++;
+    		end--;
+    	}
     }
 };
 int main() {
