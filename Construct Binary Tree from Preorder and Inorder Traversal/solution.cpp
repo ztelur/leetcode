@@ -24,7 +24,7 @@ public:
 	 * 3 关键是如何计算右子树的定点的位置 loc+(split-left)+1
 	 */
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-		// if (preorder==NULL||preorder.size()==0) return NULL;
+		if (preorder.size()==0) return NULL;
 		int size=preorder.size();
 		// printf("%s\n", "dddd");
 		return dfs(preorder,0,size,inorder,0,size);		
@@ -35,10 +35,10 @@ public:
 		// if(right==left) return root;
 		// if(right>left) return root;
 		int split=find(inorder,root->val,left,right);
-		if(loc+1<size) {
+		if(loc+1<size&&left<split) {
 			root->left=dfs(preorder,loc+1,size,inorder,left,split);
 		}
-		if(loc+1+(split-left)<size) {
+		if(loc+1+(split-left)<size&&split+1<right) {
 			root->right=dfs(preorder,loc+1+(split-left),size,inorder,split+1,right); 
 		}
 		return root;
@@ -54,12 +54,12 @@ public:
 int main() {
 	vector<int> pre;
 	pre.push_back(1);
-	// pre.push_back(2);
+	pre.push_back(2);
 	// pre.push_back(3);
 	vector<int> in;
 	// in.push_back(3);
-	// in.push_back(2);
 	in.push_back(1);
+	in.push_back(2);
 	Solution solution;
 	// printf("%d\n",1);
 	TreeNode* res=solution.buildTree(pre,in);
