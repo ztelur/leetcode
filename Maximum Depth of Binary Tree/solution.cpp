@@ -30,6 +30,7 @@ public:
    	  return res;
     }
     void dfs(TreeNode* root,int depth) {
+    	
     	if (root==NULL) {
     		if (depth>res) res=depth;
     	}
@@ -39,5 +40,5 @@ public:
 };
 int main() {
 	Solution solution;
-	solution.maxDepth(NULL);
+	int a=solution.maxDepth(NULL);
 }

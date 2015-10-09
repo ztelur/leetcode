@@ -15,7 +15,7 @@ public:
     	}
     	return res;
     }
-    void dfs(string s,vector<vector<string> > res,vector<string> pal) {
+    void dfs(const string s,vector<vector<string> > &res,vector<string> &pal) {
     	cout<<"ddd   "<<s<<endl;
     	int size=s.size();
     	if (size==0) {

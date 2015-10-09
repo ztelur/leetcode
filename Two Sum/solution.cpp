@@ -11,6 +11,8 @@ using namespace std;
  *		的点（数字）,由于一个小的集合的点（数字）的组合要满足一定的关系
  *		而进行求解
  *		1 首先想一下时间复杂度 o(n)，也就是一次遍历啦
+ 	no no no !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ 	again not thing about the below zero !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 class Solution {
 public:
@@ -18,7 +20,7 @@ public:
 		 int length=nums.size();
 		//	 if (nums==NULL) return NULL; //判断
 		 map<int,vector<int> > num_map;
-		 num_map.insert(pair<int,vector<int> >(0,vector<int>()));
+		 num_map.insert(pair<int,vector<int> >(0,vector<int>()));  //error has been target
 		 int cut_num=0;
 		 for(int i=0;i<length;i++) {
 		 	for(map<int,vector<int> >::iterator iter=num_map.begin();iter!=num_map.end();iter++) {

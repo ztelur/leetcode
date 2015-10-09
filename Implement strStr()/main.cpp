@@ -29,12 +29,14 @@ public:
 		if (sLen==pLen||sLen==0||pLen==0) {   //  s="a",p="", success
 			if (s==p) return 0;
 			if (p=="") return 0;
-			return -res;
+			return res;
 		}
+		if (pLen==0) return 0;
+		if (sLen<pLen) return -1;
 		int *next=new int[pLen];
 		getNextArrayBetter(p,next,pLen);
 		while (i<sLen&&j<pLen) {
-			cout<<"i :"<<i<<"j:"<<j<<endl;
+			// cout<<"i :"<<i<<"j:"<<j<<endl;
 			if (j==-1||s[i]==p[j]) {
 				if (j==pLen-1){
 					res=i-j;
